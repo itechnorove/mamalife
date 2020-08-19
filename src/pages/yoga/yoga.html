@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+    <table>
+        <tr>
+          <td width="99%">
+              <ion-title>Yoga</ion-title>
+          </td>
+          <td>
+            <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon>
+          </td>
+        </tr>
+      </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+    <ion-list>
+        <div *ngFor="let p of pages">
+          <!-- <ion-list-header *ngIf="p.header">
+            {{p.header}}
+          </ion-list-header> -->
+          <button ion-item detail-none (click)="play(p)" *ngIf="p.licence=='free' || ( p.licence=='full' && !freeLicence )">
+              <table width=100%><tr><td width="100%" class="text-wrap">
+                  <h2>
+                    <b>{{p.title}}</b>
+                    <br>{{p.text}}
+                    <br><i>{{p.duration}}</i>
+                  </h2>
+                <!-- </td><td *ngIf="p.title!='Yoga 3'"> -->
+                </td><td>
+                  <ion-icon *ngIf="p.status=='+'" color="green" style="zoom:1.2;" name="ios-play"></ion-icon>
+                  <ion-icon *ngIf="p.status!='+'" color="blue"  style="zoom:1.2;" name="ios-download-outline"></ion-icon>
+              </td>
+              <!-- <td><ion-icon *ngIf="p.status=='+'" color="" style="zoom:1.0;" name="ios-trash-outline"></ion-icon></td> -->
+            </tr></table>          
+          </button>
+        </div>
+    </ion-list>
+  
+
+<!-- 
+  <ion-list>
+
+    <button ion-item detail-none (click)="play('Block1')" class="disabled">
+      <table width=100%><tr><td width="100%" class="text-wrap">
+          <h2><b>Yoga 1:</b><br>Rückenlage:<br>Leg Stretch & Bridge Rolls & Hip Side Stretch <br><i>Dauer: 49 Minuten</i></h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+    <button ion-item detail-none (click)="play('Block2')">
+      <table width=100%><tr><td width="100%" class="text-wrap">
+          <h2><b>Yoga 2:</b><br>Cat Rolls & Cat Bow 1 & Cat Bow 2 <br><i>Dauer: 23 Minuten</i></h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+    <button ion-item detail-none (click)="play('Block3')" id='inactive'>
+      <table width=100%><tr><td width="100%" class="text-wrap">
+          <!-- <h2><b>Yoga 3:</b><br>Rückenlage:<br>Reclined Tree & Spider & Hip Side Stretch <br><i>Dauer: 34 Minuten</i></h2> -->
+          <!--
+          <h2><b>Yoga 3:</b><br><i>noch nicht verfügbar</i></h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+    <button ion-item detail-none (click)="play('Block4')">
+      <table width=100%><tr><td width="100%" class="text-wrap">
+          <h2><b>Yoga 4:</b><br>Cat Rolls & Cat Bow 2 & Cobra 1 & Cobra Boat & Cobra 2 Lift & Spider & Hip Side Stretch <br><i>Dauer: 42 Minuten</i></h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+    <button ion-item detail-none (click)="play('Block5')">
+      <table width=100%><tr><td width="100%" class="text-wrap">
+          <h2><b>Yoga 5:</b><br>Rückenlage:<br>Bridge Rolls & Hip Side Stretch & Reclined Butterfly <br><i>Dauer: 27 Minuten</i></h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+  </ion-list>
+ -->
+
+</ion-content>

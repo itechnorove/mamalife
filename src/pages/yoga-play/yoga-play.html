@@ -1,0 +1,227 @@
+<ion-header>
+    <ion-navbar>
+        <table>
+          <tr>
+            <td width="99%">
+              <ion-title>{{audioTitle}}</ion-title>
+            </td>
+            <td>
+              <ion-icon color=light name="trash" style="zoom:1.5;margin-right:8px;" (click)="deleteItem()"></ion-icon>
+            </td>
+          </tr>
+        </table>
+      </ion-navbar>
+    </ion-header>
+<ion-content padding>
+
+
+
+
+
+
+
+
+
+  <!--
+  <div id="video-container">
+    <audio id="video" width="640" height="365">
+      <source src="http://localhost/Achtsames%20Yoga%2025%20Min..mp3" type="audio/mp3">
+      <p>
+        Your browser doesn't support HTML5 video.
+        <a href="videos/mikethefrog.mp4">Download</a> the video instead.
+      </p>
+    </audio>
+    <div id="video-controls">
+      <button type="button" id="play-pause">Play</button>
+      <input type="range" id="seek-bar" value="0">
+      <button type="button" id="mute">Mute</button>
+      <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+      <button type="button" id="full-screen">Full-Screen</button>
+    </div>
+  </div>
+-->
+
+
+
+
+
+
+
+
+  <!--  
+  <div style="text-align: center; height: 5%;">
+  </div>
+  <div style="text-align: center; height: 20%;">
+    <h1>{{audioParam}}</h1>
+  </div>
+  <div style="text-align: center; height: 50%;">
+    <ion-slides>
+      <ion-slide>
+        <img src="assets/images/app_icons/Meditation.png" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/images/app_icons/Yoga.png" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/images/app_icons/Ernährung.png" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/images/app_icons/Bewegung.png" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/images/app_icons/Planer.png" />
+      </ion-slide>
+      <ion-slide>
+        <img src="assets/images/app_icons/Einstellungen.png" />
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div style="text-align: center; height:12px;">
+  </div>
+  <div style="text-align: center;">
+    <!--<video controls id="audio" ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime);
+                        document.getElementById('trackduration').innerHTML = Math.floor(this.duration);">
+      <source src="{{audioPath}}/{{audioParam}}.mp3" type="audio/mpeg">
+    </video> - ->
+
+    <audio controls id="track" src="{{audioPath}}/{{audioParam}}.mp3" 
+      ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime) + ' / ' + Math.floor(this.duration);">
+      <p>Your browser does not support the audio element</p>
+    </audio>
+
+    <span id="tracktime" style="display:none;">0</span>
+    <span id="trackduration" style="display:none;">0</span>
+
+  </div>
+
+
+
+
+
+
+
+<p><br></p>
+<p><br></p>
+<p><br></p>
+-->
+
+
+
+
+
+  <!-- <p><br></p> -->
+
+
+  <div class="videoContainer">
+
+    <video id="myVideo" preload="auto" poster="{{filesPath}}/yoga/images/TYC_Logo_BT.jpg" width="100%"
+      (click)="videoPlayPause()" 
+      (timeupdate)="updateTime()"
+      (ended)="videoEnded()" webkit-playsinline playsinline>
+      <source src="{{filesPath}}/yoga/{{audioFilename}}.mp3" type="audio/mpeg">
+      <p>video not supported</p>
+    </video>
+<!--  (dblclick)="videoFullscreen()" -->
+
+    <!-- <div class="caption">caption</div> -->
+
+  </div>
+
+<!-- 
+  <p><br></p>
+
+  <div class="progress-bar" (mousedown)="progressbarMousedown($event)">
+    <div class="progress">
+      <span class="bufferBar"></span>
+      <span class="timeBar"></span>
+    </div>
+  </div>
+  
+  <p><br><br></p>
+-->
+
+
+  <!--<div class="btnFS btn" title="Switch to full screen" (click)="videoFullscreen()" ><span class="icon-fullscreen"></span></div>-->
+
+  <!-- <div>
+    <div class="trackduration" style="display:none;float:right;">0</div>
+    <div class="tracktime" style="display:none;float:right;">0</div>
+  </div> -->
+
+
+  <!--<section id="wrapper">
+
+      <div class="control">
+        <div class="btmControl">
+          <div class="btnRWD btn" title="Rewind video" (click)="videoRewind()">
+            « 10s
+          </div>
+          <div class="btnPlay btn" title="Play/Pause video" (click)="videoPlayPause()">
+            <span id="playicon" class="icon-play"></span>
+          </div>
+          <div class="btnFFW btn" title="FastForward video" (click)="videoFastForward()">
+            10s »
+          </div>
+          <div class="volume" title="Set volume" (mousedown)="volumePress($event)" (mouseup)="volumeRelease()">
+            <span class="volumeBar"></span>
+          </div>
+          <div id="sound" class="sound sound2 btn" title="Mute/Unmute sound" (click)="videoSoundButton()"><span class="icon-sound"></span></div>
+          <div class="btnFS btn" title="Switch to full screen"><span class="icon-fullscreen"></span></div>
+        </div>
+      </div>
+          
+  </section>-->
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="padding: 4px 12px 0 12px !important;">
+
+      <table width=100%>
+          <tr>
+            <td>
+              <!-- <div style="font-weight:bold;float:left;color:white;">{{audioParam}}</div> -->
+            </td>
+            <td style="text-align:right">
+              <div>
+                <b>
+                  <!-- <div class="trackduration" style="display:none;float:right;color:white;">0</div> -->
+                  <div class="tracktime" style="display:none;float:right;color:white;">0</div>
+                </b>
+              </div>
+            </td>
+          </tr>
+      </table>    
+    
+    <div class="control">
+
+      <div class="progress-bar" (mousedown)="progressbarMousedown($event)">
+        <div class="progress">
+          <span class="bufferBar"></span>
+          <span class="timeBar"></span>
+        </div>
+      </div>
+      <br>
+      <br>      
+      <div class="btmControl">
+        <div class="btnRWD btn" title="Rewind video" (click)="videoRewind()">
+          « 10s
+        </div>
+        <div style="float:left;width:1%;">&nbsp;</div>
+        <div class="btnPlay btn" title="Play/Pause video" (click)="videoPlayPause()">
+          <span id="playicon" class="icon-play"></span>
+        </div>
+        <div style="float:left;width:1%;">&nbsp;</div>
+        <div class="btnFFW btn" title="FastForward video" (click)="videoFastForward()">
+          10s »
+        </div>
+        <div class="volume" title="Set volume" (mousedown)="volumePress($event)" (mouseup)="volumeRelease()">
+          <span class="volumeBar"></span>
+        </div>
+      </div>
+
+    </div>
+  </ion-toolbar>
+</ion-footer>

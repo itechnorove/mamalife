@@ -1,0 +1,97 @@
+<ion-header>
+
+  <ion-navbar>
+    <table>
+      <tr>
+        <td width="99%">
+          <ion-title>Ausdauertraining</ion-title>
+        </td>
+        <td>
+          <!-- <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon> -->
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+  <button ion-item detail-none (click)="toggleStyle('1')"><h2>
+    <ion-icon id="arrow-down1" name="ios-arrow-down"></ion-icon>
+    <ion-icon id="arrow-up1" name="ios-arrow-up" class="hiddenelement"></ion-icon>
+      &nbsp; Empfehlungen zum Ausdauertraining
+  </h2></button>
+  <div id="div1" class="hiddenelement">
+    <ion-item>
+      <ion-label class="text-wrap">
+        <h1>Wie oft:</h1><br> Ideal sind <b>150 Minuten/Woche</b>;<br> beginnen Sie z.B. mit <br>
+        <b>3-4 mal 30-45 Minuten/Woche</b><br>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="text-wrap">
+        <h1>Die richtige Belastung:</h1>
+        <ol>
+          <li><b>Körperwahrnehmung</b>:<br>ihr Herz schlägt spürbar schneller als in Ruhe, Sie können Sich aber jederzeit noch unterhalten</li>
+          <br>
+          <li><b>Herzfrequenz</b>:<br>orientieren Sie sich an Ihrem persönlichen Trainingsbereich (siehe „Mein Bewegungs-Profil“)<br>
+            <b>Hinweis:</b> Sie sollten ihre Trainingsherzfrequenzen regelmäßig neu ermitteln lassen</li>
+          <br>
+          <li><b>Borg-Skala</b>:<br>je nach Tagesform sollte ihr persönliches Belastungsempfinden einen Wert zwischen 11 und 15
+            betragen</li>
+        </ol>
+        <div *ngIf="!freeLicence">
+          <button ion-button block class="disable-ripple" style="background-color: #00aadd;" (click)="openPDF('Borg-Skala.pdf')">
+            Borg-Skala (PDF)
+          </button>
+        </div>
+      </ion-label>
+    </ion-item>
+  </div>
+
+
+  <button ion-item detail-none (click)="toggleStyle('2')"><h2>
+    <ion-icon id="arrow-down2" name="ios-arrow-down"></ion-icon>
+    <ion-icon id="arrow-up2" name="ios-arrow-up" class="hiddenelement"></ion-icon>
+      &nbsp; Trainingspläne
+  </h2></button>
+  <div id="div2" class="hiddenelement">
+    <ion-item>
+      <ion-label class="text-wrap">
+        Hier finden Sie Standard-Trainingspläne, die von der Deutschen Krebshilfe in Zusammenarbeit mit der Sporthochschule Köln
+        und dem Deutschen Olympischen Sportbund erstellt wurden.<br>
+        <br> Diese können als Orientierung dienen, ideal ist aber immer eine individuelle Planung des Trainings.<br>
+        <br>
+        <!-- <div *ngIf="!freeLicence"> -->
+        <div>
+          <!-- <b>Trainingspläne:</b><br> -->
+          <br><b>Einsteiger</b>
+          <button ion-button block style="background-color: #00aadd;" (click)="openPDF('Trainingsplan_fuer_Einsteiger_Schwimmen.pdf')">
+            Schwimmen (PDF)
+          </button>
+          <br><b>Fortgeschrittene Einsteiger</b>
+          <button ion-button block style="background-color: #00aadd;" (click)="openPDF('Trainingsplan_fuer_fortgeschrittene_Einsteiger_Joggen.pdf')">
+            Joggen (PDF)
+          </button>
+          <button ion-button block style="background-color: #00aadd;" (click)="openPDF('Trainingsplan_fuer_fortgeschrittene_Einsteiger_Radfahren.pdf')">
+            Radfahren (PDF)
+          </button>
+          <button ion-button block style="background-color: #00aadd;" (click)="openPDF('Trainingsplan_fuer_fortgeschrittene_Einsteiger_Schwimmen.pdf')">
+            Schwimmen (PDF)
+          </button>
+          <br><b>Nichtsportler</b>
+          <button ion-button block style="background-color: #00aadd;" (click)="openPDF('Trainingsplan_fuer_Nichtsportler_Joggen.pdf')">
+            Joggen (PDF)
+          </button>
+          <button ion-button block style="background-color: #00aadd;" (click)="openPDF('Trainingsplan_fuer_Nichtsportler_Radfahren.pdf')">
+            Radfahren (PDF)
+          </button>
+        </div>
+      </ion-label>
+    </ion-item>
+  </div>
+
+</ion-content>

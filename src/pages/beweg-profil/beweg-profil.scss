@@ -1,0 +1,56 @@
+page-beweg-profil {
+    
+    .list-header-md {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        font-weight: bold;
+        border-top: none;
+        border-bottom: none;
+    }
+
+    .label-md {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+
+    .pink {
+        background-color: lightpink;
+    }
+
+    .gray {
+        background-color: lightgray;
+    }
+
+    .item-inner {
+        border-bottom: none !important;
+        box-shadow:  none !important;
+    }
+
+    ion-input .text-input-md {
+        text-align: center;
+    }
+
+    .text-input[disabled] {
+        opacity: 1;
+    }
+
+    // nav bar low padding+margin
+    .back-button-md {
+        margin-right: 0;
+        margin-left: 2px;
+        // min-width: 0px;
+    }
+    .bar-button-md {
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .toolbar-title-md {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+    }
+
+
+}

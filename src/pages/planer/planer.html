@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar>
+    <table>
+      <tr>
+        <td width="99%">
+          <ion-title>Planer</ion-title>
+        </td>
+        <td>
+          <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon>
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+
+
+
+  <!--<div padding style="position: fixed;width: 100%;top: 44px; z-index: 10; background-color: #f2e9da;">-->
+  <div padding>
+    <ion-segment [(ngModel)]="segmentbutton" id="segmentButtonContainer">
+      <ion-segment-button value="Aktiv" (ionSelect)="filterItems('Aktiv')">
+        Aktiv
+      </ion-segment-button>
+      <ion-segment-button value="Verlauf" (ionSelect)="filterItems('Verlauf')">
+        Verlauf
+      </ion-segment-button>
+      <!--<ion-segment-button value="alle" (ionSelect)="filterItems()">
+        alle
+      </ion-segment-button>
+      <ion-segment-button value="Meditation" (ionSelect)="filterItems('Meditation')">
+        Meditationen
+      </ion-segment-button>
+      <ion-segment-button value="Yoga" (ionSelect)="filterItems('Yoga')">
+        Yoga
+      </ion-segment-button>-->
+    </ion-segment>
+  </div>
+
+
+  <ion-list id="ViewListContainer">
+    <!--<h3 padding>geplant:</h3>-->
+    <ion-item *ngFor="let p of ViewList" (click)="clickOnPlannedActivity(p)">
+      {{ p.activity }}
+      <p style="font-size:-1;">
+          <!--&nbsp; am {{p.am.substr(0,10)}}-->
+          &nbsp; am {{p.am.substr(8,2)}}.{{p.am.substr(5,2)}}.{{p.am.substr(0,4)}}
+          &nbsp; um {{p.am.substr(11,5)}}
+      </p>
+    </ion-item>
+  </ion-list>
+
+  <!--<div [ngSwitch]="ViewList.activity">
+
+    <ion-list *ngSwitchCase="'alle'">
+      <ion-item *ngFor="let p of ViewList">
+        {{ p.activity }}
+        <p style="font-size:-2;"> &nbsp; {{p.am.substr(0,24)}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Meditation'">
+      <ion-item *ngFor="let p of ViewList">
+        {{ p.activity }}
+        <p style="font-size:-2;"> &nbsp; {{p.am.substr(0,24)}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Yoga'">
+      <ion-item *ngFor="let p of ViewList">
+        {{ p.activity }}
+        <p style="font-size:-2;"> &nbsp; {{p.am.substr(0,24)}}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchDefault>
+      <ion-item *ngFor="let p of ViewList">
+        {{ p.activity }}
+        <p style="font-size:-2;"> &nbsp; {{p.am.substr(0,24)}}</p>
+      </ion-item>
+    </ion-list>
+
+  </div>-->
+
+
+  <!--
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let p of ViewList">
+      {{ p.activity }}
+      <p style="font-size:-2;"> &nbsp; {{p.am.substr(0,24)}}</p>
+    </ion-item>
+  </ion-list>
+  -->
+
+
+<!--
+  <p><br></p>
+  <p><br></p>
+  <p><br></p>
+  <p><br></p>
+  <p><br></p>
+  <ion-list-header>
+    test-optionen
+  </ion-list-header>
+
+
+  <ion-item (click)="readConfigFile();">
+    <ion-label>read config file</ion-label>
+  </ion-item>
+
+  <ion-item (click)="testwritefile();">
+    <ion-label>reset config file</ion-label>
+  </ion-item>
+
+  <ion-item (click)="alertConfigFileOptions();">
+    <ion-label>alertConfigFileOptions</ion-label>
+  </ion-item>
+-->
+
+
+
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <div #planActivityToolbar id="planActivityToolbar" class="planActivityToolbar">
+      <button ion-button block color="secondary" (click)="planActivity('')">Aktivität planen</button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-navbar>
+    <table>
+      <tr>
+        <td width="99%">
+          <ion-title>Alltagsbewegung</ion-title>
+        </td>
+        <td>
+          <ion-icon color=light name="trash" style="zoom:2.0;margin-right:8px;" (click)="clearAllInputs()"></ion-icon>
+        </td>
+        <td>
+          <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon>
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+<!-- 
+  <button ion-item detail-none (click)="toggleStyleIndividually('1')">
+    <h2>
+      <ion-icon id="arrow-down1" name="ios-arrow-down"></ion-icon>
+      <ion-icon id="arrow-up1" name="ios-arrow-up" class="hiddenelement"></ion-icon>
+        <b>&nbsp; Information</b>
+    </h2>
+  </button>
+  <div id="div1" class="hiddenelement">
+    <ion-item>
+      <ion-label class="text-wrap">Bringen Sie mit dem <b>mammaLIFE Schritte-Planer</b> mehr Bewegung in Ihren Alltag. <br>
+        Nehmen Sie sich jede Woche vor, <b>täglich 500 Schritte mehr als in der Vorwoche</b> zu machen.<br>
+        Vielleicht schaffen Sie irgendwann sogar 10.000 Schritte am Tag.<br>
+        Bitte geben Sie Ihre durchschnittlichen Schritte pro Tag ein (Ø Schritte/Tag).
+      </ion-label>
+    </ion-item>
+  </div> 
+-->
+
+
+  <!-- <ion-label style="text-align: right;">(Ø Schritte/Tag)</ion-label> -->
+  
+
+  <ion-list *ngFor="let Woche of Wochen; let i = index">
+
+
+    <!-- <div [class.show]="Woche.Schritte[i]>1" class="step"> -->
+    <ion-grid [class.show]="Woche.Ziel>0 || i === 0" class="step">
+
+      <ion-row>
+        <ion-col>
+          <ion-item-divider color="primary">
+            Woche {{i+1}}
+            <i *ngIf="i===0">(Schritte):</i>
+            <i *ngIf="i>0">(+500 Schritte):</i>
+          </ion-item-divider>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-2>
+          <ion-label *ngIf="i>0">Ziel: </ion-label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-input *ngIf="i>0" type="number" value="" [(ngModel)]="Woche.Ziel" disabled></ion-input>
+        </ion-col>
+
+        <ion-col col-4 style="text-align: right;font-size: -1;">
+          <ion-label>Erreicht:</ion-label>
+        </ion-col>
+        <ion-col col-3>
+          <ion-input type="number" value="" [(ngModel)]="Woche.Schritte" disabled (click)="erreichterWertEingabe(i)"></ion-input>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <!-- </div> -->
+
+
+  <!-- 
+    <ion-item-divider color="primary">Woche 1:</ion-item-divider>
+    <ion-item>
+      <ion-label>
+        Erreichter Wert:
+      </ion-label>
+      <ion-input type="tel" value="" clearInput=true maxlength="6" [(ngModel)]="SchritteWoche1" disabled (click)="erreichterWertEingabe(1)"></ion-input>
+    </ion-item>
+
+    <div [class.show]="SchritteWoche1>1" class="step">
+      <ion-item-divider color="primary">Woche 2 (+500 Schritte):</ion-item-divider>
+      <ion-item>
+        <ion-label>
+          Ziel (Ø Schritte/Tag) :
+        </ion-label>
+        <ion-input type="number" value="" [(ngModel)]="ZielWoche[i]" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Erreichter Wert (Ø Schritte/Tag) :
+        </ion-label>
+        <ion-input type="tel" value="" clearInput=true maxlength="5" [(ngModel)]="SchritteWoche2" disabled (click)="erreichterWertEingabe(2)"></ion-input>
+      </ion-item>
+    </div>
+
+    <div [class.show]="SchritteWoche2>1" class="step">
+      <ion-item-divider color="primary">Woche 3 (+500 Schritte):</ion-item-divider>
+      <ion-item>
+        <ion-label>
+          Ziel (Ø Schritte/Tag) :
+        </ion-label>
+        <ion-input type="number" value="" [(ngModel)]="ZielWoche3" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Erreichter Wert (Ø Schritte/Tag) :
+        </ion-label>
+        <ion-input type="tel" value="" clearInput=true maxlength="5" [(ngModel)]="SchritteWoche3" (ionChange)="calculateValues()"></ion-input>
+      </ion-item>
+    </div> 
+  -->
+
+
+
+  </ion-list>
+
+
+
+</ion-content>

@@ -1,0 +1,36 @@
+page-ernae-nwlindern {
+
+    .item-md h3 {
+        font-size: 1.5rem !important;
+    }
+
+    .text-wrap {
+        overflow: initial;
+        white-space: initial;
+        margin-left: 20px;
+    }
+
+    .hiddenelement {
+        display: none;
+        // opacity: 0;
+        // transition: 1.9s ease-in-out all;
+    }
+
+    // nav bar low padding+margin
+    .back-button-md {
+        margin-right: 0;
+        margin-left: 2px;
+        // min-width: 0px;
+    }
+    .bar-button-md {
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .toolbar-title-md {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+    }
+
+}

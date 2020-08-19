@@ -1,0 +1,54 @@
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { MeditationPage } from '../pages/meditation/meditation';
+import { TransferPage } from '../pages/transfer/transfer';
+import { LoginPage } from '../pages/login/login';
+import { MeditationPlayPage } from '../pages/meditation-play/meditation-play';
+import { YogaPage } from '../pages/yoga/yoga';
+import { SettingsPage } from '../pages/settings/settings';
+import { ImpressumPage } from '../pages/impressum/impressum';
+import { ErinnerungenPage } from '../pages/erinnerungen/erinnerungen';
+import { PlanerPage } from '../pages/planer/planer';
+import { YogaPlayPage } from '../pages/yoga-play/yoga-play';
+import { BewegungPage } from '../pages/bewegung/bewegung';
+
+@NgModule({
+  declarations: [
+    MyApp,
+    BewegungPage,
+    YogaPlayPage,
+    PlanerPage,
+    ErinnerungenPage,
+    ImpressumPage,
+    SettingsPage,
+    YogaPage,
+    MeditationPlayPage,
+    LoginPage,
+    TransferPage,
+    MeditationPage,
+    HomePage
+  ],
+  imports: [
+    IonicModule.forRoot(MyApp)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    BewegungPage,
+    YogaPlayPage,
+    PlanerPage,
+    ErinnerungenPage,
+    ImpressumPage,
+    SettingsPage,
+    YogaPage,
+    MeditationPlayPage,
+    LoginPage,
+    TransferPage,
+    MeditationPage,
+    HomePage
+  ],
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+})
+export class AppModule {}

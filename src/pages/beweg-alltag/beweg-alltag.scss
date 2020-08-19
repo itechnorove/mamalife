@@ -1,0 +1,50 @@
+page-beweg-alltag {
+    
+    .text-wrap {
+        overflow: initial;
+        white-space: initial;
+    }
+
+    .item-input ion-label {
+        max-width: 70%;
+        width: 70%;
+    }
+
+    .input-ios  {
+        padding: 0 0 0 8px;
+    }
+
+    .hiddenelement {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+        
+    // .text-input .text-input-md {
+    //     border: aquamarine 1px solid;
+    // }
+
+    .show {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    .step {
+        opacity: 0;
+        transition: 1.9s ease-in-out all;
+        pointer-events: none;
+    }
+
+    ion-input {
+        background-color: lightpink;
+    }
+
+    .item-inner {
+        border-bottom: none !important;
+        box-shadow:  none !important;
+    }
+
+    .text-input[disabled] {
+        opacity: 1;
+    }
+
+}

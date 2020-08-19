@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="showLogin">mammaLIFE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="height: 5%"></div>
+
+  <div *ngIf="showLogin">
+    
+    <button ion-button color="primary" full (click)="doFreeVersion()" *ngIf="readyToLogin">Freie Version</button>
+
+    <br>
+    oder:
+    <br><br>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Persönlicher Zugang" [(ngModel)]="accesscode"></ion-input>
+    </ion-item>
+
+    <!-- <div *ngIf="false">
+      <ion-item>
+        <ion-input type="text" placeholder="Login" [(ngModel)]="login"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Passwort" [(ngModel)]="pass"></ion-input>
+      </ion-item>
+    </div> -->
+
+    <button ion-button color="secondary" full (click)="doLogin()" *ngIf="readyToLogin">Vollversion</button>
+
+    <ion-item *ngIf="OS!='xxxandroid'">
+    </ion-item>
+
+     
+  
+    <ion-item *ngIf="OS!='xxxandroid'">
+      Die Vollversion der App ist nur <br/>
+      für Teilnehmerinnen des <br/>
+      Brustkrebs-Nachsorgeprogramms <br/>
+      mammaLIFE verfügbar.<br/>
+      Nähere Informationen dazu unter:<br/>
+      <br/>
+      <a href="http://www.mammalife.de/" target="_blank">www.mammalife.de</a> <br/>
+      Dr. Florian Wiedemann: <br/>
+      Telefon:  08041 4484174 <a href="tel:08041 4484174"> <ion-icon name="call"></ion-icon> </a><br/>
+      Email:    info@mammalife.de <a href="mailto:info@mammalife.de">  <ion-icon name="mail"></ion-icon> </a>
+    </ion-item>
+
+    <!-- <ion-item *ngIf="OS!='android'">
+      Diese App ist Bestandteil des <br/>
+      mammaLIFE Programms: <br/>
+      <br/>
+      <a href="http://www.mammalife.de/" target="_blank">www.mammalife.de</a> <br/>
+      <br/>
+      Bitte wenden Sie sich an  <br/>
+      Herrn Dr. Florian Wiedemann: <br/>
+      Telefon: 08041/4474040 <br/>
+      Email:   info@mammalife.de <br/>
+    </ion-item> -->
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <!--<div *ngIf="!showLogin">
+
+    <ion-item>
+      <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </div>
+
+  <button ion-button color="primary" full (click)="doRegister()">Register</button>-->
+
+</ion-content>

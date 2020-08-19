@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <table>
+      <tr>
+        <td width="99%">
+          <ion-title>Nebenwirkungen lindern</ion-title>
+        </td>
+        <td>
+          <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon>
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngFor="let item of items; let i = index">
+
+    <button ion-item detail-none (click)="toggleStyle(i)"><h2>
+      <ion-icon id="arrow-down{{i}}" name="ios-arrow-down"></ion-icon>
+      <ion-icon id="arrow-up{{i}}" name="ios-arrow-up" class="hiddenelement"></ion-icon>
+        <b>&nbsp; {{ item.title }}</b></h2>
+    </button>
+    <div id="div{{i}}" class="hiddenelement">
+      <ion-item>
+        <ion-label class="text-wrap">
+          <b>{{ item.headline1 }}</b><br *ngIf="item.headline1"><br *ngIf="item.headline1"> {{ item.content1 }}<br>
+          <br *ngIf="item.headline2">
+          <b>{{ item.headline2 }}</b><br *ngIf="item.content2"> {{ item.content2 }}
+        </ion-label>
+      </ion-item>
+    </div>
+
+  </div>
+
+</ion-content>

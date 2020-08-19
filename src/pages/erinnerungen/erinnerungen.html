@@ -1,0 +1,256 @@
+<ion-header>
+  <ion-navbar>
+    <table>
+      <tr>
+        <td width="99%">
+          <ion-title>Erinnerungen</ion-title>
+        </td>
+        <td>
+          <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon>
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <!--<div *ngIf="!notificationsState">-->
+  <div #wrapper>
+
+
+
+
+    <ion-list-header>
+      Erinnerungstyp auswählen:
+    </ion-list-header>
+
+
+    <ion-item>
+      <ion-select [(ngModel)]="erinnerungspool" (ionChange)="writeConfigFileOptions()" [selectOptions]="verwendenOptions"
+          okText="Okay" cancelText="Abbrechen">
+        <ion-option value="Voreingestellt">Voreingestellt</ion-option>
+        <ion-option value="Eigene Erinnerungen">Eigene Erinnerungen</ion-option>
+        <!--<ion-option value="Alle Erinnerungen" selected="true">Alle Erinnerungen</ion-option>-->
+      </ion-select>
+    </ion-item>
+
+
+    <div #eigeneErinnerungenWrapper>
+      <div *ngIf="erinnerungspool!='Voreingestellt'">
+
+        <ion-item (click)="eigeneErinnerungErstellen()">
+          <span> » Hinzufügen</span>
+        </ion-item>
+
+        <ion-item style="white-space: normal !important;" *ngIf="eigene_erinnerung_texte.length>0">
+          <ion-select [(ngModel)]="erinnerung_text_entfernen" (ionChange)="eigeneErinnerungEntfernen()" style="white-space: normal !important; color:#000 !important;"
+            placeholder=" » Verwalten" [selectOptions]="verwaltenOptions" okText="ENTFERNEN" cancelText="Zurück">
+            <ion-option *ngFor="let eet of eigene_erinnerung_texte" style="white-space: normal !important;">
+              {{ eet.text }}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </div>
+
+
+
+
+
+
+    <ion-list-header>
+      Intervall:
+    </ion-list-header>
+
+    <ion-item>
+      <ion-select [(ngModel)]="erinnerung_intervall" (ionChange)="writeConfigFileOptions()" [selectOptions]="intervallOptions"
+        okText="Okay" cancelText="Abbrechen">
+        <ion-option>Einmalig</ion-option>
+        <ion-option>Alle 30 Minuten</ion-option>
+        <ion-option>Jede Stunde</ion-option>
+        <ion-option>Alle 2 Stunden</ion-option>
+        <ion-option>Alle 4 Stunden</ion-option>
+        <ion-option>Alle 6 Stunden</ion-option>
+        <ion-option>Alle 12 Stunden</ion-option>
+        <ion-option>Einmal täglich</ion-option>
+        <ion-option *ngIf="debugModeCounter>=7" disabled style="display:none;">----------------</ion-option>
+        <ion-option *ngIf="debugModeCounter>=7">Test: 1 Minute</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!--<ion-item>
+      <ion-range min="10" max="60" step="10" snaps="true" [(ngModel)]="erinnerung_timer" color="secondary">
+        <ion-icon range-left small name="time" (click)="erinnerung_timer=10;"></ion-icon>
+        <ion-icon range-right name="time" (click)="erinnerung_timer=60;"></ion-icon>
+      </ion-range>
+    </ion-item>-->
+
+
+
+
+
+
+
+
+
+    <ion-list-header *ngIf="erinnerung_intervall==='Einmalig'">
+      <table style="width:100%;"><tr><td style="width:66%;">
+        Am:
+      </td><td>
+        Um:
+      </td></tr></table>
+    </ion-list-header>
+    <ion-list-header *ngIf="erinnerung_intervall!=='Einmalig'">
+      Von:
+    </ion-list-header>
+
+    <table style="width:100%;"><tr><td style="width:66%;">
+        <ion-item>
+          <!--ion-label>Datum:</ion-label-->
+          <ion-datetime [(ngModel)]="myISOStartDate" (ngModelChange)="writeConfigFileOptions()" displayFormat="DD. MMMM YYYY" pickerFormat="DD. MMM YYYY" min="{{minISODate}}"
+            max="2222-22-02" monthNames="Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember"
+            monthShortNames="Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez" dayNames="Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag"
+            dayShortNames="Mo, Di, Mi, Do, Fr, Sa, So" mode="datetime" titleText="DATUM" okText="EINSTELLEN" doneText="EINSTELLEN"
+            cancelText="ZURÜCK" todayText="HEUTE" nowText="JETZT"></ion-datetime>
+        </ion-item>
+    </td><td>
+        <ion-item>
+          <!--ion-label>Uhrzeit:</ion-label-->
+          <ion-datetime [(ngModel)]="myISOStartDate" (ngModelChange)="writeConfigFileOptions()" displayFormat="HH:mm" pickerFormat="HH:mm" min="{{minTime}}" max="2222-22-02"
+            mode="datetime" titleText="UHRZEIT" okText="EINSTELLEN" doneText="EINSTELLEN" cancelText="ZURÜCK" todayText="HEUTE"
+            nowText="JETZT"></ion-datetime>
+        </ion-item>
+    </td></tr></table>
+
+
+    <div #bisWrapper *ngIf="erinnerung_intervall!=='Einmalig'"><!--style="border-bottom: 0.55px solid #c8c7cc;"-->
+      <ion-list-header>
+        Bis:
+      </ion-list-header>
+
+      <table style="width:100%;"><tr><td style="width:66%;">
+            <ion-item>
+              <!--ion-label>Datum:</ion-label-->
+              <ion-datetime [(ngModel)]="myISOEndDate" (ngModelChange)="writeConfigFileOptions()" displayFormat="DD. MMMM YYYY" pickerFormat="DD. MMM YYYY" min="{{minISODate}}" max="2222-22-02"
+                monthNames="Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember" monthShortNames="Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez"
+                dayNames="Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag" dayShortNames="Mo, Di, Mi, Do, Fr, Sa, So"
+                mode="datetime" titleText="DATUM" okText="EINSTELLEN" doneText="EINSTELLEN" cancelText="ZURÜCK" todayText="HEUTE"
+                nowText="JETZT"></ion-datetime>
+            </ion-item>
+      </td><td>
+            <ion-item *ngIf="erinnerung_intervall!=='Einmal täglich'">
+              <!--ion-label>Uhrzeit:</ion-label-->
+              <ion-datetime [(ngModel)]="myISOEndDate" (ngModelChange)="writeConfigFileOptions()" displayFormat="HH:mm" pickerFormat="HH:mm" min="{{minTime}}" max="2222-22-02" mode="datetime"
+                titleText="UHRZEIT" okText="EINSTELLEN" doneText="EINSTELLEN" cancelText="ZURÜCK" todayText="HEUTE" nowText="JETZT"></ion-datetime>
+            </ion-item>
+      </td></tr></table>
+
+    </div>
+
+
+
+
+
+
+
+      <table style="width:100%;"><tr><td>
+
+        <ion-list-header>
+          Ruhezeit:
+        </ion-list-header>
+
+      </td><td>
+
+        <ion-list-header>
+          Von:
+        </ion-list-header>
+
+      </td><td style="width:33%;">
+
+        <ion-list-header>
+          Bis:
+        </ion-list-header>
+
+      </td></tr><tr><td>
+
+      </td><td>
+
+        <ion-item>
+          <ion-datetime [(ngModel)]="myNightStart" (ngModelChange)="writeConfigFileOptions()" displayFormat="HH:mm" pickerFormat="HH:mm" mode="datetime"
+            titleText="UHRZEIT" okText="EINSTELLEN" doneText="EINSTELLEN" cancelText="ZURÜCK" todayText="HEUTE" nowText="JETZT"></ion-datetime>
+        </ion-item>
+
+      </td><td>
+
+        <ion-item>
+          <ion-datetime [(ngModel)]="myNightEnd" (ngModelChange)="writeConfigFileOptions()" displayFormat="HH:mm" pickerFormat="HH:mm" mode="datetime"
+            titleText="UHRZEIT" okText="EINSTELLEN" doneText="EINSTELLEN" cancelText="ZURÜCK" todayText="HEUTE" nowText="JETZT"></ion-datetime>
+        </ion-item>
+
+      </td></tr></table>
+
+
+
+
+  </div>
+
+
+
+
+
+<div *ngIf="this.singleton.debugON">
+
+  <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>  
+  <p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+  
+  <ion-list-header>
+    test-optionen
+  </ion-list-header>
+
+  <p><br></p>
+
+  <ion-item (click)="existingNotificationIDs();">
+    <ion-label>existingNotificationIDs</ion-label>
+  </ion-item>
+
+  <p><br></p>
+
+  <ion-item (click)="readConfigFile();">
+    <ion-label>read config file</ion-label>
+  </ion-item>
+
+  <p><br></p>
+
+  <ion-item (click)="resetConfigFile();">
+    <ion-label>reset config file</ion-label>
+  </ion-item>
+
+
+</div>
+
+
+</ion-content>
+
+
+<ion-footer>
+
+  <ion-toolbar>
+
+      <!-- <div #planActivityToolbar id="planActivityToolbar" class="planActivityToolbar" > -->
+
+        <button ion-button block class="disable-ripple" style="background-color: #00aadd; width:100%;">
+
+            <ion-label>Bearbeiten&nbsp;</ion-label>
+            <ion-toggle [(ngModel)]="notificationsState" (ionChange)="toggleNotifications()"></ion-toggle>
+            <ion-label>&nbsp;Starten</ion-label>
+
+        </button>
+        
+      <!-- </div> -->      
+
+  </ion-toolbar>
+
+</ion-footer>

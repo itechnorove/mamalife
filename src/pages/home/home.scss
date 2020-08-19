@@ -1,0 +1,178 @@
+page-home {
+
+    // ion-spinner * {
+    //     width: 28px;
+    //     height: 28px;
+    //     stroke: #444;
+    //     fill: #222;
+    // }
+
+    .scroll-content {
+        padding: 8px !important;
+    }
+
+    // .h2 {
+    //     font-size: 1.5rem;
+    // }
+
+    .div_img_container {
+        text-align: center;        
+    }
+
+    .item-md h2 {
+        font-size: 1.5rem;
+    }
+    .item-md {
+        padding-left: 0px;
+        margin-top: 0px;
+    }
+    .item-md ion-avatar[item-left] {
+        margin-right: 4px;
+    }
+    .item-md.item-block .item-inner {
+        padding-right: 2px;
+    }
+    .label-md {
+        margin: 0 0 0 0;
+    }
+    .toolbar-md {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .item-ios h2 {
+        font-size: 1.5rem;
+    }
+    .item-ios {
+        padding-left: 0px;
+        margin-top: 0px;
+    }
+    .item-ios ion-avatar[item-left] {
+        margin-right: 4px;
+    }
+    .item-ios.item-block .item-inner {
+        padding-right: 2px;
+    }
+    .label-ios {
+        margin: 0 0 0 0;
+    }
+    .toolbar-ios {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+
+    .item-wp h2 {
+        font-size: 1.4rem;
+    }
+    .item-wp {
+        padding-left: 0px;
+        margin-top: 0px;
+    }
+    .item-wp ion-avatar[item-left] {
+        margin-right: 4px;
+    }
+    .item-wp.item-block .item-inner {
+        padding-right: 2px;
+    }
+    .label-wp {
+        margin: 0 0 0 0;
+    }
+    .toolbar-wp {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+
+
+
+
+    .alert-title {
+        text-align: center !important;
+        -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+    }
+    .alert-md .alert-title {
+        text-align: center !important;
+        -webkit-box-pack: center !important;
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+    }
+
+    .alert .alert-wrapper .alert-title .customAlertTitle {
+        text-align: center !important;
+    }
+    div.alert-head {
+        text-align: center !important;
+    }
+    .alert-md .alert-head {
+        text-align: center !important;
+    }
+
+
+/*
+    .item-md ion-avatar ion-img, .item-md ion-avatar img {
+            width: 50px;
+            height: 50px;
+            border: 5px outset hotpink;
+    }
+*/
+
+
+
+
+/*
+    // different portrail/landscape views:
+
+    @media all and (orientation:portrait) {
+        // Styles for Portrait screen 
+        .div_main_container {
+            height:100%;
+            width:100%;
+            //margin-top:30px;
+            display:flex;
+        }
+        .div_img_container {
+            height:177px;
+            width:100%;
+            text-align:center;
+            position: relative;
+            padding: 0 0 0 0;
+        }
+        .div_button {
+            width:45%;
+        }
+        .div_button_container {
+            position:absolute;
+            bottom:0;
+            width:90%;
+            display:block;
+        }
+    }
+
+    @media all and (orientation:landscape) {
+        // Styles for Landscape screen 
+        .div_main_container {
+            height:100%;
+            width:100%;
+            display:flex;
+            align-items:center;            
+        }
+        .div_img_container { 
+            height:170px;
+            text-align:center;
+            position: relative; 
+        }
+        .div_button {
+            width:45%;
+        }
+        .div_button_container {
+            position:absolute;
+            right:10px;
+            width:50%;
+        }
+    }
+*/
+
+}

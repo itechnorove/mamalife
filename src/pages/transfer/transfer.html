@@ -1,0 +1,126 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Zusätzliche Dateien</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <table style="width: 100%; height: 100%;">
+    <!-- <tr style="height: 5%">
+      <td>
+      </td>
+    </tr> -->
+
+
+    <tr>
+      <td>
+        <h4>Audios</h4>
+        <p>
+          Die Meditationen und Yoga Übungen können einzeln geladen und gelöscht werden:
+          <table>
+            <tr>
+              <td style="width: 30px;">
+                <ion-icon color="blue" style="zoom:1.5;" name="ios-download-outline"></ion-icon>
+              </td>
+              <td>
+                Muss noch heruntergeladen werden.
+              </td>
+            </tr>
+            <hr>
+            <tr>
+              <td>
+                <ion-icon color="green" style="zoom:1.5;" name="ios-play"></ion-icon>
+              </td>
+              <td>
+                Kann verwendet werden.<br>
+              </td>
+            </tr>
+          <!-- </table>
+          <br> In den jeweiligen Meditationen und Yoga Übungen können die Audio Dateien einzeln gelöscht werden:<br>
+          <table> -->
+            <hr>
+            <tr>
+              <td style="width: 30px;">
+                <ion-icon style="zoom:1.5;" name="trash"></ion-icon>
+              </td>
+              <td>
+                Löschen<br>(auf der jeweiligen Übungsseite).
+              </td>
+            </tr>
+          </table>
+          <!-- <br>
+          Je nach Dateigröße bzw. Länge der Audiodatei kann der Download mehrere Minuten dauern.<br>
+          <br>
+          Eine aktive WiFi Verbindung wird empfohlen. -->
+      </td>
+    </tr>
+
+
+    <tr *ngIf='!freeLicence'>
+      <td>
+        <!-- <h4>Audios und PDFs</h4>
+        <br/>
+        <p>
+          Die Dateien haben eine Größe von etwa {{downloadPackageSize}}MB. 
+          Zum Entpacken der Dateien werden kurzzeitig etwa {{freeDiskSpaceNeeded}}MB freier Speicherplatz benötigt.<br>
+          Der Download kann mehrere Minuten dauern.<br>
+          <br>
+          Eine aktive WiFi Verbindung wird empfohlen.<br>          
+        </p> -->
+        <h4>PDFs</h4>
+          Hier werden zusätzlich benötigte PDF Dateien heruntergeladen.<br>
+      </td>
+    </tr>
+
+    <tr *ngIf='!freeLicence' valign="bottom">
+        <td *ngIf="downloadStatus.length>0">
+          <!-- <div *ngIf="progress!=0" [style.width]="progress + (7*((100-progress)/100)) + '%'">{{progress}}%</div> -->
+          <!--<div class="progress-bar blue stripes"><span [style.width]="progress + '%'"></span></div>-->
+          <ion-input disabled [(ngModel)]='downloadStatus' placeholder=""></ion-input>
+          <progress class="progress-bar" max="100" value="{{progress}}" style="width:100%;"></progress>
+        </td>
+        <td *ngIf="downloadStatus.length==0"> <!-- style="vertical-align: bottom;"> -->
+          <button ion-item detail-none (click)="retryCheckFreeDiskSpace();" color="secondary">Download PDFs</button>
+        </td>
+    </tr>
+
+    <tr *ngIf='freeLicence' valign="bottom">
+      <td>
+        <button ion-item detail-none (click)="freeLicenceProceed();" color="secondary">Verstanden</button>
+      </td>
+    </tr>
+
+
+
+
+
+
+
+
+
+    <tr *ngIf="downloadStatus.length==0 && false">
+      <td style="vertical-align: center;">
+          <!-- <ion-item style="text-align:left !important;"> -->
+              <br><h5>Installieren auf</h5>
+          <!-- </ion-item> -->
+          <ion-list radio-group [(ngModel)]="installTarget">
+            <ion-item>
+                <ion-label>Telefon</ion-label>
+                <ion-label>{{freeSpacePhone}} MB frei</ion-label>
+                <ion-radio checked="true" value="Telephone"></ion-radio>
+            </ion-item>
+            <ion-item *ngIf="OS!='ios'" id="SDCard_option">
+              <ion-label>SD Karte</ion-label>
+              <ion-label>{{freeSpaceSDCard}} MB frei</ion-label>
+              <ion-radio value="SDCard"></ion-radio>
+            </ion-item>
+          </ion-list>
+      </td>
+    </tr>
+  </table>
+
+</ion-content>

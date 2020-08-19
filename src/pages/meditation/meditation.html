@@ -1,0 +1,165 @@
+<ion-header>
+  <ion-navbar>
+    <table>
+        <tr>
+          <td width="99%">
+              <ion-title>Meditation</ion-title>
+          </td>
+          <td>
+            <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon>
+          </td>
+        </tr>
+      </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<!--
+  
+  <ion-list>
+
+    <ion-list-header>
+      Body Scan:
+    </ion-list-header>
+    <button ion-item detail-none (click)="play('Body Scan 23 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>Kurz, 23 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Body Scan 34 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>Lang, 34 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+    <ion-list-header>
+      Sitzmeditation:
+    </ion-list-header>
+    <button ion-item detail-none (click)="play('Sitzmeditation 5 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>5 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Sitzmeditation 15 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>15 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Sitzmeditation 25 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>25 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Sitzmeditation 35 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>35 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+    <ion-list-header>
+      Stille Meditation:
+    </ion-list-header>
+    <button ion-item detail-none (click)="play('Stille Meditation 2 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>2 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Stille Meditation 5 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>5 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Stille Meditation 15 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>15 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Stille Meditation 25 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>25 Minuten</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+    <ion-list-header>
+      Weitere:
+    </ion-list-header>
+    <button ion-item detail-none (click)="play('Heilmeditation 11 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>Heilmeditation 11 Min.</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Gefühle willkommen heißen 12 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>Gefühle willkommen heißen 12 Min.</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+    <button ion-item detail-none (click)="play('Metta Meditation 15 Min.')">
+      <table width=100%><tr><td width="100%">
+          <h2>Metta Meditation 15 Min.</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+  </ion-list>
+  <!-- -->
+
+<!--   
+  <button ion-item detail-none (click)="play('Body Scan 23 Min.')">
+    <table width=100%><tr><td width="100%">
+        <h2>Kurz, 23 Minuten</h2>
+      </td><td>
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+    </td></tr></table>
+  </button>
+-->
+
+ 
+  <ion-list>
+      <div *ngFor="let p of pages">
+        <ion-list-header *ngIf="p.header && ( p.licence=='free' || ( p.licence=='full' && !freeLicence ) )">
+          {{p.header}}
+        </ion-list-header>
+        <button ion-item detail-none (click)="play(p)" *ngIf="p.licence=='free' || ( p.licence=='full' && !freeLicence )">
+          <!-- <ion-avatar item-left>
+              <img src="assets/images/app_icons/{{p.title}}.png" alt="{{p.title}}"/>
+            </ion-avatar> -->
+            <table width=100%><tr><td width="100%">
+                <h2>{{p.listname}}</h2>
+              </td><td>
+                  <ion-icon *ngIf="p.status=='+'" color="green" style="zoom:1.5;" name="ios-play"></ion-icon>
+                  <ion-icon *ngIf="p.status!='+'" color="blue"  style="zoom:1.5;" name="ios-download-outline"></ion-icon>
+              </td>
+            </tr></table>          
+        </button>
+      </div>
+  </ion-list>
+  <!--  -->
+
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <table>
+      <tr>
+        <td width="99%">
+          <ion-title>Ernährung</ion-title>
+        </td>
+        <td>
+          <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon>
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <!--<ion-list-header>
+      Thema:
+    </ion-list-header>-->
+
+    <button ion-item detail-none (click)="openPage(ep)" *ngFor="let ep of ernaepages">
+      <table width=100%><tr><td width="100%">
+          <h2>{{ep.title}}</h2>
+        </td><td>
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+      </td></tr></table>
+    </button>
+
+  </ion-list>
+
+</ion-content>

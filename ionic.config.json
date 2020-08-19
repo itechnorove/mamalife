@@ -1,0 +1,8 @@
+{
+  "name": "mammalife",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "id": "308f96a5"
+}

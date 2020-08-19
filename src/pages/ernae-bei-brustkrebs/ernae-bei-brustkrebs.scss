@@ -1,0 +1,39 @@
+page-ernae-bei-brustkrebs {
+
+    .scrollbar {
+        overflow-y: scroll;
+    }
+
+    .text-wrap {
+        overflow: initial;
+        white-space: initial;
+    }
+
+    ul {
+        -webkit-padding-start: 20px;
+    }
+
+    bar-button {
+        max-width: 32px;
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+    }
+
+    // nav bar low padding+margin
+    .back-button-md {
+        margin-right: 0;
+        margin-left: 2px;
+        // min-width: 0px;
+    }
+    .bar-button-md {
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .toolbar-title-md {
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+    }
+
+}

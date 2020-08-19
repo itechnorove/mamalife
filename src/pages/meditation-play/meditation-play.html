@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-navbar>
+    <table>
+      <tr>
+        <td width="99%">
+          <ion-title>{{audioTitle}}</ion-title>
+        </td>
+        <td>
+          <ion-icon color=light name="trash" style="zoom:1.5;margin-right:8px;" (click)="deleteItem()"></ion-icon>
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <!--<div style="text-align: center; height: 10%;">
+  </div>
+  <div style="text-align: center; height: 20%;">
+    <h1>{{audioParam}}</h1>
+  </div>
+  <div style="text-align: center;">
+    <video id="myVideo" controls (timeupdate)="updateTime()" (click)="videoPlayPause()">
+      <source src="{{audioPath}}{{audioParam}}.mp3" type="audio/mpeg">
+    </video>
+  </div>-->
+
+
+
+
+  <p><br></p>
+  <p><br></p>
+  
+  <div class="videoContainer">
+                                  <!-- poster="{{filesPath}}/meditation/meditation_poster.jpg"  -->
+    <video id="myVideo" preload="auto" poster="assets/images/meditation/meditation_poster.jpg" width="100%"
+      (click)="videoPlayPause()" 
+      (timeupdate)="updateTime()" 
+      (ended)="videoEnded()" webkit-playsinline playsinline>
+      <source src="{{filesPath}}/meditation/{{audioFilename}}" type="audio/mpeg">
+      <p>video not supported</p>
+    </video>
+<!--  (dblclick)="videoFullscreen()" -->
+
+    <div class="caption">caption</div>
+
+  </div>
+
+  <p><br></p>
+
+  <!-- <div class="progress-bar" (mousedown)="progressbarMousedown($event)">
+    <div class="progress">
+      <span class="bufferBar"></span>
+      <span class="timeBar"></span>
+    </div>
+  </div> -->
+
+  <p><br><br></p>
+
+  <!--<div class="btnFS btn" title="Switch to full screen" (click)="videoFullscreen()" ><span class="icon-fullscreen"></span></div>-->
+
+  <!-- <div>
+    <div class="trackduration" style="display:none;float:right;">0</div>
+    <div class="tracktime" style="display:none;float:right;">0</div>
+  </div> -->
+
+
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-toolbar style="padding: 4px 12px 0 12px !important;">
+
+      <table width=100%>
+        <tr>
+          <td>
+              <!-- <div style="font-weight:bold;float:left;color:white;">{{audioParam}}</div> -->
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align:right">
+            <div>
+              <b>
+                <!-- <div class="trackduration" style="display:none;float:right;color:white;">0</div> -->
+                <div class="tracktime" style="display:none;float:right;color:white;">0</div>
+              </b>
+            </div>
+          </td>
+        </tr>
+      </table>
+  
+    <div class="control">
+
+        <div class="progress-bar" (mousedown)="progressbarMousedown($event)">
+          <div class="progress">
+            <span class="bufferBar"></span>
+            <span class="timeBar"></span>
+          </div>
+        </div>
+        <br>
+        <br> 
+        <div class="btmControl">
+        <div class="btnRWD btn" title="Rewind video" (click)="videoRewind()">
+          « 10s
+        </div>
+        <div style="float:left;width:1%;">&nbsp;</div>
+        <div class="btnPlay btn" title="Play/Pause video" (click)="videoPlayPause()">
+          <span id="playicon" class="icon-play"></span>
+        </div>
+        <div style="float:left;width:1%;">&nbsp;</div>
+        <div class="btnFFW btn" title="FastForward video" (click)="videoFastForward()">
+          10s »
+        </div>
+        <div class="volume" title="Set volume" (mousedown)="volumePress($event)" (mouseup)="volumeRelease()">
+          <span class="volumeBar"></span>
+        </div>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

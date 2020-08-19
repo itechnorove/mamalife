@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar>
+    <table>
+      <tr>
+        <td width="99%">
+          <ion-title>Kräftigung</ion-title>
+        </td>
+        <td>
+          <!-- <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon> -->
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <h2>Empfehlungen für Ihr Krafttraining</h2>
+  <ion-item>
+    <ion-label class="text-wrap">
+      <h1>Wie oft:</h1><br> 
+      1-3 mal pro Woche, jeweils mindestens 20 Minuten<br>
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="text-wrap">
+      
+      <h1>Die richtige Belastung:</h1>
+      <ol>
+        <li>10-15 Wiederholungen pro Übung, je nach Verfassung 1-3 Sätze</li><br>
+        <li><b>Borg-Skala:</b> mittleres Belastungsempfinden zwischen 12 und 14</li>
+      </ol>
+      <b>Hinweis:</b> Alternativ können Sie auch kräftigende Yoga-Übungen durchführen.<br>
+      <br>
+      <!-- <div ng-disabled="freeLicence"> -->
+      <div>
+          <b>mammaLIFE - Trainingsprogramm:</b><br>
+        <br>
+        <button ion-button block style="background-color: #00aadd;" (click)="openPDF('Krafttraining.pdf')">
+          Trainingsplan (PDF)
+        </button>
+        <br>
+        <button ion-button block style="background-color: #00aadd;" (click)="openPDF('Borg-Skala.pdf')">
+          Borg-Skala (PDF)
+        </button>
+      </div>
+
+    </ion-label>
+  </ion-item>
+</ion-content>

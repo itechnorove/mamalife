@@ -1,0 +1,37 @@
+page-planer {
+
+    .button-disabled, .button-disabled * { background-color: #bbbbbb; pointer-events: none; }
+
+    .item-disabled, .item-disabled * { pointer-events: none; }
+
+    .item-hidden, .item-hidden * { display:none; pointer-events: none; }
+
+    // // bottom button
+    // .button-md {
+    //     background-color: #00ccff;
+    // }
+    // .button-wp {
+    //     background-color: #00ccff;
+    // }
+    // .button-ios {
+    //     background-color: #00ccff;
+    // }
+
+
+    // $colors: (
+    //     primary:    #115599,
+    //     secondary:  #32db64,
+    //     danger:     #f53d3d,
+    //     light:      #f4f4f4,
+    //     dark:       #222,
+    //     inactive:   #bbb,
+    //     toolbar:    #777,
+    // );
+    // $text-color: #fff !default;
+    // $background-color: #000 !default;
+    // $toolbar-md-background:  #111;
+    // $toolbar-wp-background:  #111;
+    // $toolbar-ios-background: #111;
+    // @import "ionic.theme.dark";
+
+}

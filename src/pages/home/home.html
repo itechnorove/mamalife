@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <!-- <ion-title (click)="debug()">Home</ion-title> -->
+    <table>
+      <tr>
+        <td width="99%">
+            <ion-title>Home</ion-title>
+        </td>
+        <td>
+          <ion-icon color=light name="information-circle" style="zoom:2.0;margin-right:8px;" (click)="infoPage()"></ion-icon>
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- <ion-nav [root]="rootPage" #menu ></ion-nav> -->
+
+
+
+  <!-- content start -->
+  <table style="width: 99%;height: 99%;">
+    <tr><td colspan="2">
+      
+      <div class="div_img_container">
+        <img src="assets/images/mammaLife_Logo.png"/>
+      </div>
+
+    </td></tr><tr><td>
+    </td></tr><tr><td>
+
+      <ion-list>
+        <table style="width: 99%;height: 99%;">
+          <tr><td>
+              <ion-item (click)="openPage(pages[0])">
+                <ion-avatar item-left>
+                  <img src="assets/images/app_icons/Meditation.png"/>
+                </ion-avatar>
+                <h2>Meditation</h2>
+                <!--<p>Meditation</p>-->
+              </ion-item>
+          </td><td>
+              <ion-item (click)="openPage(pages[1])">
+                <ion-avatar item-left>
+                  <img src="assets/images/app_icons/Yoga.png"/>
+                </ion-avatar>
+                <h2>Yoga</h2>
+                <!--<p>Yoga</p>-->
+              </ion-item>
+          </td></tr><tr><td>
+              <ion-item (click)="openPage(pages[2])">
+                <ion-avatar item-left>
+                  <img src="assets/images/app_icons/Ernährung.png"/>
+                </ion-avatar>
+                <h2>Ernährung</h2>
+                <!--<p>Ernährung</p>-->
+              </ion-item>
+          </td><td>
+              <ion-item (click)="openPage(pages[3])">
+                <ion-avatar item-left>
+                  <img src="assets/images/app_icons/Bewegung.png"/>
+                </ion-avatar>
+                <h2>Bewegung</h2>
+                <!--<p>Bewegung</p>-->
+              </ion-item>
+          </td></tr><tr><td>
+              <ion-item (click)="openPage(pages[4])">
+                <ion-avatar item-left>
+                  <img src="assets/images/app_icons/Planer.png"/>
+                </ion-avatar>
+                <h2>Planer</h2>
+                <!--<p>Planer</p>-->
+              </ion-item>
+          </td><td>
+              <ion-item (click)="openPage(pages[5])">
+                <ion-avatar item-left>
+                  <img src="assets/images/app_icons/Erinnerungen.png"/>
+                </ion-avatar>
+                <h2 style="font-size: 1.5rem;">Achtsamkeits-</h2>
+                <p style="color:black;font-size: 1.5rem;">Erinnerungen</p>
+              </ion-item>
+          </td></tr>        
+        </table>
+      </ion-list>
+
+    </td></tr>
+
+  </table>
+
+  <!-- content end -->
+
+</ion-content>
+
+
+  <ion-footer>
+    <ion-toolbar color="background-color">
+      <table>
+          <tr><td style="width:99%;">
+            <ion-item *ngIf="freeLicence" style="font-size:10px;text-align:left;"> &nbsp; &nbsp; <i>freie Version</i></ion-item>
+            <ion-item *ngIf="!freeLicence" style="font-size:10px;text-align:left;"> &nbsp; &nbsp; <i>Vollversion</i></ion-item>
+          </td><td>
+                <ion-item (click)="openPage(pages[6])" style="transform: scale(0.7);text-align:right;">
+                    <h2>Impressum</h2>
+                    <ion-avatar item-right>
+                    <img src="assets/images/app_icons/Impressum.png"/>
+                  </ion-avatar>
+                  <!-- <p>Impressum</p> -->
+                </ion-item>
+            </td></tr>
+      </table>
+    </ion-toolbar>
+  </ion-footer>
+
+
+  <!-- (side)menu start -->
+  <!-- <ion-menu [content]="menu">
+    <ion-content>
+      <ion-list>
+        <button ion-item detail-none *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-avatar item-left>
+              <img src="assets/images/app_icons/{{p.title}}.png" alt="{{p.title}}"/>
+            </ion-avatar>
+            <table width=100%><tr><td width="100%">
+                <h2>{{p.title}}</h2>
+              </td><td>
+                <ion-icon name="ios-arrow-forward"></ion-icon>
+            </td></tr></table>          
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu> -->
+  <!-- (side)menu end -->
+
+

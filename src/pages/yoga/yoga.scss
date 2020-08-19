@@ -1,0 +1,13 @@
+page-yoga {
+
+    .item-disabled, item-disabled * { opacity: 0.3; pointer-events: none; }
+
+    .disabled { opacity: 0.3; pointer-events: none; }
+
+    .text-wrap {
+        overflow: initial;
+        white-space: initial;
+        padding-right: 20px;
+    }
+
+}

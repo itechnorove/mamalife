@@ -1,0 +1,152 @@
+page-erinnerungen {
+
+    .item-disabled, item-disabled * { opacity: 0.3; pointer-events: none; }
+
+    .disable-ripple .button-effect {
+        display:none !important;
+    }
+
+    //ionic datepicker
+    .picker-wrapper {
+        bottom: 200px !important;
+        right: 20px !important;
+        left: 20px !important;
+        width:none !important;
+        max-width:none !important;
+        transform: translateY(-10%);
+    }
+
+    //ion-date label text color
+    .item-datetime .label-md {
+        color: #000;
+    }
+
+    //ion-select text color
+    .select-text {
+        color:#000 !important;
+    }
+
+    //ion-select linksbündig
+    .select-md {
+        padding: 0 0 0 0;
+    }
+
+    .select-wp {
+        padding: 0 0 0 0;
+    }
+
+    .select-ios {
+        padding: 0 0 0 0;
+    }
+
+    ion-label {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+
+    .list-header-md {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+        border-top: none; 
+        border-bottom: none; 
+    }
+    .list-header-wp {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+    .list-header-ios {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+
+    .label-md {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+    .label-wp {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+    .label-ios {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+
+
+    // // bottom div
+    // .planActivityToolbar {
+    //     float: right !important;
+    // }
+
+    // bottom button
+    .button-mp {
+        background-color: map-get($colors, toolbar);
+    }
+    .button-wp {
+        background-color: map-get($colors, toolbar);
+    }
+    .button-ios {
+        background-color: map-get($colors, toolbar);
+    }
+
+    // html5 datepicker input fields
+    #eigenerErinnerungstext {
+        margin-left: 10px;
+    }
+    #whentime {
+        margin-left: 14px;
+        font-size: 16px;
+        max-width: 46%;
+    }
+    #whendate {
+        font-size: 16px;
+        max-width: 48%;
+    }
+
+
+
+    // * {
+    //     white-space: normal !important;
+    // }
+
+    ion-select {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    alert-wrapper { white-space: normal !important; } 
+    alert-tappable { white-space: normal !important; }
+    alert-radio { white-space: normal !important; }
+    disable-hover { white-space: normal !important; }
+    alert-radio-button { white-space: normal !important; }
+    alert-radio-button-md { white-space: normal !important; }
+    alert-radio-button-default { white-space: normal !important; }
+    alert-radio-button-default-md { white-space: normal !important; }
+
+    alert-radio-label { white-space: normal !important; }
+    
+    div { white-space: normal !important; }
+
+    item-content.wrap { white-space: normal !important; }
+
+
+    alert-md alert-radio-label {
+        overflow: hidden;
+
+        flex: 1;
+
+        text-overflow: ellipsis;
+        white-space: normal !important;
+    }
+    alert-md alert-checkbox-label {
+        overflow: hidden;
+
+        flex: 1;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+    }
+
+
+}
